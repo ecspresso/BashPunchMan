@@ -1,0 +1,20 @@
+# /etc/systemd/system/bashpunchman.service
+[Unit]
+Description=One-Punch Man Manga Downloader
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/bashpunchman.sh
+User=root
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=BashPunchMan
+
+# Restart on failure
+Restart=on-failure
+RestartSec=5min
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+# /etc/systemd/system/bashpunchman.timer
+[Unit]
+Description=Run BashPunchMan Montly
+Requires=bashpunchman.service
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
